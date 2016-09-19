@@ -1,0 +1,24 @@
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.routeguide";
+option java_outer_classname = "RouteGuideProto";
+
+package segmentation;
+
+service Segmentation {
+    rpc GetSegmentInfo(AdRequest) returns (SupplySegment) {}
+}
+
+message AdRequest {
+    string device_id = 1;
+    double lat = 2;
+    double lng = 3;
+}
+
+message SupplySegment {
+    string audience = 1;
+    string place_name = 2;
+    string place_type = 3;
+}
