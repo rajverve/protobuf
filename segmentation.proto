@@ -11,6 +11,10 @@ service Segmentation {
     rpc GetSegmentInfo(AdRequest) returns (SupplySegment) {}
 }
 
+service Blacklist {
+    rpc GetBlacklistInfo(AdRequest) returns (BlacklistResponse) {}
+}
+
 message AdRequest {
     string device_id = 1;
     double lat = 2;
@@ -21,4 +25,8 @@ message SupplySegment {
     string audience = 1;
     string place_name = 2;
     string place_type = 3;
+}
+
+message BlacklistResponse {
+    bool blacklist = 1;
 }
